@@ -147,7 +147,7 @@ string convertToString(bool a){
 // Single threaded calculations for a specific number to be prime
 
 bool isPrimeAS(long long a){
-    for(int i = 2; i < a; ++i){
+    for(long long i = 2; i < a; ++i){
         if(a % i == 0){
             cout << "AS: i: " << i << endl;
             return false;
@@ -159,7 +159,7 @@ bool isPrimeAS(long long a){
 bool isPrimeBS(long long a){
     if(a % 2 == 0)
         return false;
-    for(int i = 3; i < a / 2 + 1; i = i + 2){
+    for(long long i = 3; i < a / 2 + 1; i = i + 2){
         if(a % i == 0){
             cout << "BS: i: " << i << endl;
             return false;
@@ -172,7 +172,7 @@ bool isPrimeCS(long long a){
     long long b = sqrt(a);
     if(a % 2 == 0 || a == b * b)
         return false;
-    for(int i = 3; i < a / 2 + 1; i = i + 2){
+    for(long long i = 3; i < a / 2 + 1; i = i + 2){
         if(a % i == 0){
             cout << "CS: i: " << i << endl;
             return false;
@@ -207,7 +207,7 @@ bool isPrimeAM(long long a){
     bool result = true;
 
     #pragma omp parallel for
-    for(int i = 2; i < a; ++i){
+    for(long long i = 2; i < a; ++i){
         if(a % i == 0){
             cout << "AM: i: " << i << endl;
             result = false;
@@ -221,7 +221,7 @@ bool isPrimeBM(long long a){
     if(a % 2 == 0)
         return false;
     #pragma omp parallel for
-    for(int i = 3; i < a / 2 + 1; i = i + 2){
+    for(long long i = 3; i < a / 2 + 1; i = i + 2){
         if(a % i == 0){
             cout << "BM: i: " << i << endl;
             result = false;
@@ -236,7 +236,7 @@ bool isPrimeCM(long long a){
     if(a % 2 == 0 || a == b * b)
         return false;
     #pragma omp parallel for
-    for(int i = 3; i < a / 2 + 1; i = i + 2){
+    for(long long i = 3; i < a / 2 + 1; i = i + 2){
         if(a % i == 0){
             cout << "CM: i: " << i << endl;
             result = false;
